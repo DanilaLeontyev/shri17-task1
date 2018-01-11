@@ -14,4 +14,9 @@ app.use('/', pagesRoutes)
 app.use('/graphql', graphqlRoutes);
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(3000, () => console.log('Express app listening on localhost:3000'));
+
+app.get('/hello', (req, res) => {
+    res.send({ express: "hello from express" })
+})
+
+app.listen(5000, () => console.log('Express app listening on localhost:5000'));
