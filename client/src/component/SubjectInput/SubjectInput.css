@@ -1,0 +1,31 @@
+.SubjectInput {
+  height: 58px;
+  width: 420px;
+}
+
+.SubjectInput > h1 {
+  font-size: 13px;
+}
+
+.SubjectInput > input {
+  margin-top: -4px;
+  outline: none;
+  width: 420px;
+  height: 38px;
+
+  border: 2px solid #e9ecef;
+  border-radius: 4px;
+
+  font-family: HelveticaNeue;
+  font-size: 13px;
+  color: #858e98;
+  letter-spacing: 0.47px;
+
+  text-align: left;
+  padding-left: 10px;
+}
+
+.SubjectInput > input:focus {
+  border: 2px solid #007dff;
+  border-radius: 4px;
+}

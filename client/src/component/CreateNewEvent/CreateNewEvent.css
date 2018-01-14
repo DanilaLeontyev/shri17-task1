@@ -1,5 +1,16 @@
 .CreateNewEvent {
   width: 100%;
-
+  max-width: 887px;
   flex: 1 1 auto;
+  align-self: center;
+}
+
+.HeaderWrapper {
+  margin-top: 17px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.HeaderTitle {
+  font-size: 20px;
 }

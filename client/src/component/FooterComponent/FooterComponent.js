@@ -3,12 +3,7 @@ import "./FooterComponent.css";
 
 class FooterComponent extends React.Component {
   render() {
-    return (
-      <footer className="FooterComponent">
-        <p>sdfsdf</p>
-        <p>salkdfjl;askdfj</p>
-      </footer>
-    );
+    return <footer className="FooterComponent" />;
   }
 }
 
