@@ -24,9 +24,13 @@ class App extends Component {
   // };
 
   componentDidMount() {
-    fetch("/users")
+    fetch("https://localhost:5000/graphql", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ query: "{ users { id } }" })
+    })
       .then(res => res.json())
-      .then(users => this.setState({ users }));
+      .then(users => console.log(users));
   }
 
   render() {
