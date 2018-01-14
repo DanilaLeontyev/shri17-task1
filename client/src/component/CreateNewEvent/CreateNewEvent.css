@@ -12,5 +12,9 @@
 }
 
 .HeaderTitle {
+  font-family: HelveticaNeueBold;
+  color: #000000;
+  letter-spacing: 0;
   font-size: 20px;
+  line-height: 25px;
 }

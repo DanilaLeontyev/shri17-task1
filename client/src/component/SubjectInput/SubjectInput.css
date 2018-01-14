@@ -4,10 +4,20 @@
 }
 
 .SubjectInput > h1 {
+  font-family: HelveticaNeueBold;
+  color: #000000;
+  letter-spacing: 0;
   font-size: 13px;
+  line-height: 16px;
 }
 
 .SubjectInput > input {
+  font-family: HelveticaNeue;
+  font-size: 13px;
+  line-height: 15px;
+  color: #858e98;
+  letter-spacing: 0.47px;
+
   margin-top: -4px;
   outline: none;
   width: 420px;
@@ -15,11 +25,6 @@
 
   border: 2px solid #e9ecef;
   border-radius: 4px;
-
-  font-family: HelveticaNeue;
-  font-size: 13px;
-  color: #858e98;
-  letter-spacing: 0.47px;
 
   text-align: left;
   padding-left: 10px;
