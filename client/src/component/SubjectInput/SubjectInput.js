@@ -8,7 +8,7 @@ class SubjectInput extends React.Component {
     super(props);
     this.state = {
       subject: "",
-      users: []
+      events: []
     };
 
     this.mutation = `mutation {
@@ -35,27 +35,27 @@ class SubjectInput extends React.Component {
 
   handleSabmit(event) {
     request('/graphql', this.mutation).then(data => console.log(data))
-    request('/graphql', this.query).then(data => console.log(data))
+    request('/graphql', this.query).then(res => this.setState({ events: res.events }))
 
+    console.log(this.state)
     event.preventDefault()
   }
 
   handleSubjectChange(event) {
-    console.log(this);
     this.setState({ subject: event.target.value });
   }
   render() {
     return (
       <form className="SubjectInput" onSubmit={this.handleSabmit}>
-        <h1>Тема</h1>
+        <label>Тема</label>
         <input
           type="text"
           placeholder="О чём будете говорить?"
           value={this.state.subject}
           onChange={this.handleSubjectChange}
         />
-        <h1>Users</h1>
-        {this.state.users.map(user => <div key={user.id}>{user.login} and {user.id}</div>)}
+        {/* <h1>Events</h1>
+        {this.state.events.map(event => <div key={event.id}>{event.title} </div>)} */}
       </form>
     );
   }
