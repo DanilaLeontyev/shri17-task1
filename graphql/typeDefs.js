@@ -4,13 +4,13 @@ scalar Date
 type User {
     id: ID!
     login: String!
-    homeFloor: Int
+    homeFloor: Int!
     avatarUrl: String!
 }
 
 input UserInput {
     login: String!
-    homeFloor: Int
+    homeFloor: Int!
 }
 
 type UserRoom {
