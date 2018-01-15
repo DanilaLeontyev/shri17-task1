@@ -18,6 +18,7 @@ class CreateNewEvent extends React.Component {
       </main>
     );
   }
+
 }
 
 export default CreateNewEvent;
