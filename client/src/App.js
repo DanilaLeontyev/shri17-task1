@@ -15,22 +15,25 @@ class App extends Component {
   // }
 
   // callApi = async () => {
-  //   const response = await fetch("/users");
+  //   const response = await fetch("/graphql", {
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({ query: "{ users {id, login}}" })
+  //   });
   //   const body = await response.json();
-
+  //   console.log(response)
   //   if (response.status !== 200) throw Error(body.message);
 
   //   return body;
   // };
 
   componentDidMount() {
-    fetch("https://localhost:5000/graphql", {
+    fetch("/graphql", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ query: "{ users { id } }" })
+      body: JSON.stringify({ query: "{ users { id, login }}" })
     })
       .then(res => res.json())
-      .then(users => console.log(users));
+      .then(res => this.setState({ users: res.data.users }))
   }
 
   render() {
@@ -38,7 +41,8 @@ class App extends Component {
       <div className="App">
         <HeaderComponent />
         <h1>Users</h1>
-        {this.state.users.map(user => <div key={user.id}>{user.username}</div>)}
+        {console.log(this.state.users)}
+        {this.state.users.map(user => <div key={user.id}>{user.login} and {user.id}</div>)}
         <CreateNewEvent />
         <FooterComponent />
       </div>

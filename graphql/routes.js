@@ -10,7 +10,7 @@ const router = express.Router();
 
 const schema = makeExecutableSchema({
   typeDefs,
-  resolvers
+  resolvers: resolvers()
 });
 
 router.use(
@@ -19,11 +19,5 @@ router.use(
     graphiql: true
   })
 );
-
-// // The GraphQL endpoint
-// app.use("/graphql", graphqlExpress({ schema }));
-
-// // GraphiQL, a visual editor for queries
-// app.use("/graphiql", graphiqlExpress({ endpointURL: "/graphql" }));
 
 module.exports = router;
