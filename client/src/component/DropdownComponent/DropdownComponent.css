@@ -1,0 +1,51 @@
+.DropdownComponent {
+    margin-top: 20px;
+    width: 420px;
+  }
+  
+
+.DropdownList {
+    outline: none;
+    background: #FFFFFF;
+    box-shadow: 0 1px 10px 0 rgba(0,44,92,0.28);
+    border-radius: 4px;
+    overflow: auto;
+  }
+
+.DropdownElement{
+  font-family: HelveticaNeue;
+  font-size: 13px;
+  color: #000000;
+  letter-spacing: 0;
+  list-style: none;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 10px;
+  cursor: pointer;
+}
+.DropdownElement:hover * {
+  font-family: HelveticaNeueBold;
+}
+
+span {
+  font-family: HelveticaNeue;
+  font-size: 13px;
+  color: #858E98;
+  letter-spacing: 0;
+  line-height: 15px;
+}
+
+.DropdownElement img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-left: 16px;
+  margin-right: 8px;
+}
+
+.ScrollbarsWrapper {
+  width: 400px;
+  height: 300px;
+}

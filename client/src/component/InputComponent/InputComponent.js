@@ -7,29 +7,27 @@ class InputComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            input_data: ""
         };
 
         this.handleSubjectChange = this.handleSubjectChange.bind(this);
-        this.handleSabmit = this.handleSabmit.bind(this);
-    }
-
-    handleSabmit(event) {
-
     }
 
     handleSubjectChange(event) {
-        this.setState({ subject: event.target.value });
+        this.setState({ input_data: event.target.value });
     }
     render() {
         return (
             <div className='InputComponent'>
-                <label>{this.props.label}</label>
-                <input
-                    type={this.props.type}
-                    placeholder={this.props.placeholder}
-                    value={this.state.users}
-                    onChange={this.handleSubjectChange}
-                />
+                <label>
+                    {this.props.label}
+                    <input
+                        type={this.props.type}
+                        placeholder={this.props.placeholder}
+                        value={this.state.input_data}
+                        onChange={this.handleSubjectChange}
+                    />
+                </label>
             </div>
         );
     }
