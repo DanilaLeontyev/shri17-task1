@@ -4,7 +4,7 @@ import { request } from "graphql-request";
 
 import CloseButton from "../CloseButton/CloseButton";
 import InputComponent from "../InputComponent/InputComponent";
-import UserBox from "../UserBox/UserBox";
+// import UserBox from "../UserBox/UserBox";
 import DropdownComponent from "../DropdownComponent/DropdownComponent";
 
 class CreateNewEvent extends React.Component {
@@ -13,14 +13,12 @@ class CreateNewEvent extends React.Component {
     this.state = {
       users: [],
       rooms: [],
-      selectedUsers: [],
-      selectedRoom: "",
-      subject: ""
+      subject: "",
+      selectedUser: []
     };
 
     this.handleAddUser = this.handleAddUser.bind(this);
     this.handleSubjectChange = this.handleSubjectChange.bind(this);
-
     this.getRooms = `{
       rooms {
         id,
@@ -51,20 +49,19 @@ class CreateNewEvent extends React.Component {
   }
 
   handleAddUser(event) {
-    this.setState({
-      selectedUsers: [...this.state.selectedUsers, event.currentTarget.value]
-    });
     console.log(this.state.selectedUsers);
   }
 
   handleSubjectChange(event) {
-    console.log("sdfkl");
+    this.setState({
+      subject: event.target.value
+    });
   }
 
   render() {
     const users = this.state.users;
     // const rooms = this.state.rooms
-
+    const subject = this.state.subject;
     const selectedUser = this.state.selectedUser;
 
     return (
@@ -76,18 +73,18 @@ class CreateNewEvent extends React.Component {
         <InputComponent
           label="Тема"
           placeholder="О чём будете говорить?"
-          value={this.state.subject}
-          handleChange={this.state.handleSubjectChange}
+          value={subject}
+          handleChange={this.handleSubjectChange}
         />
 
         <DropdownComponent
           handleAddUser={this.handleAddUser}
           label="Участники"
           placeholder="Например, Тор Одинович"
-          users={users}
+          data={users}
         />
 
-        {selectedUser !== undefined && (
+        {/* {selectedUser !== undefined && (
           <div className="UserContainer">
             {selectedUser.map(user => (
               <UserBox
@@ -98,7 +95,7 @@ class CreateNewEvent extends React.Component {
               />
             ))}
           </div>
-        )}
+        )} */}
       </main>
     );
   }
