@@ -1,11 +1,11 @@
 import React from "react";
-import "./CreateNewEvent.css"
-import { request } from "graphql-request"
+import "./CreateNewEvent.css";
+import { request } from "graphql-request";
 
-import CloseButton from "../CloseButton/CloseButton"
-import InputComponent from "../InputComponent/InputComponent"
-import UserBox from "../UserBox/UserBox"
-import DropdownComponent from "../DropdownComponent/DropdownComponent"
+import CloseButton from "../CloseButton/CloseButton";
+import InputComponent from "../InputComponent/InputComponent";
+import UserBox from "../UserBox/UserBox";
+import DropdownComponent from "../DropdownComponent/DropdownComponent";
 
 class CreateNewEvent extends React.Component {
   constructor(props) {
@@ -14,10 +14,12 @@ class CreateNewEvent extends React.Component {
       users: [],
       rooms: [],
       selectedUsers: [],
-      selectedRoom: ''
+      selectedRoom: "",
+      subject: ""
     };
 
-    this.handleAddUser = this.handleAddUser.bind(this)
+    this.handleAddUser = this.handleAddUser.bind(this);
+    this.handleSubjectChange = this.handleSubjectChange.bind(this);
 
     this.getRooms = `{
       rooms {
@@ -26,7 +28,7 @@ class CreateNewEvent extends React.Component {
         floor,
         capacity
       }
-    }`
+    }`;
 
     this.getUsers = `{
       users {
@@ -35,29 +37,35 @@ class CreateNewEvent extends React.Component {
         homeFloor,
         avatarUrl
       }
-    }`
+    }`;
   }
 
   componentWillMount() {
-    request('/graphql', this.getRooms)
+    request("/graphql", this.getRooms)
       .then(res => this.setState({ rooms: res.rooms }))
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
 
-    request('/graphql', this.getUsers)
+    request("/graphql", this.getUsers)
       .then(res => this.setState({ users: res.users }))
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   }
 
   handleAddUser(event) {
-    this.setState({ selectedUsers: [...this.state.selectedUsers, event.currentTarget.value] })
-    console.log(this.state.selectedUsers)
-  };
+    this.setState({
+      selectedUsers: [...this.state.selectedUsers, event.currentTarget.value]
+    });
+    console.log(this.state.selectedUsers);
+  }
+
+  handleSubjectChange(event) {
+    console.log("sdfkl");
+  }
 
   render() {
-    const users = this.state.users
+    const users = this.state.users;
     // const rooms = this.state.rooms
 
-    const selectedUser = this.state.selectedUser
+    const selectedUser = this.state.selectedUser;
 
     return (
       <main className="CreateNewEvent">
@@ -65,33 +73,35 @@ class CreateNewEvent extends React.Component {
           <h1 className="HeaderTitle">Новая встреча</h1>
           <CloseButton />
         </div>
-        <InputComponent label="Тема" placeholder="О чём будете говорить?" />
+        <InputComponent
+          label="Тема"
+          placeholder="О чём будете говорить?"
+          value={this.state.subject}
+          handleChange={this.state.handleSubjectChange}
+        />
 
         <DropdownComponent
           handleAddUser={this.handleAddUser}
           label="Участники"
           placeholder="Например, Тор Одинович"
-          users={users} />
+          users={users}
+        />
 
-        {selectedUser !== undefined &&
+        {selectedUser !== undefined && (
           <div className="UserContainer">
-            {selectedUser.map(
-              (user) =>
-                <UserBox
-                  key={user.id}
-                  userAvatar={user.avatarUrl}
-                  userLogin={user.login}
-                  userFloor={user.homeFloor}
-                />)
-            }
+            {selectedUser.map(user => (
+              <UserBox
+                key={user.id}
+                userAvatar={user.avatarUrl}
+                userLogin={user.login}
+                userFloor={user.homeFloor}
+              />
+            ))}
           </div>
-        }
-
-
+        )}
       </main>
     );
   }
-
 }
 
 export default CreateNewEvent;
