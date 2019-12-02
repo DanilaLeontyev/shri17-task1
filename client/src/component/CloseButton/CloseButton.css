@@ -1,0 +1,11 @@
+.CloseButton {
+  width: 24px;
+  height: 24px;
+  align-self: center;
+  background: #e9ecef;
+  padding: 4px 3px 3px 3px;
+  border-radius: 100px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}

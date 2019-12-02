@@ -1,0 +1,31 @@
+.CreateNewEvent {
+  width: 100%;
+  max-width: 887px;
+  flex: 1 1 auto;
+  align-self: center;
+}
+
+.HeaderWrapper {
+  margin-top: 17px;
+  display: flex;
+  align-items: baseline;
+  margin-top: 31px;
+  justify-content: space-between;
+}
+
+.HeaderTitle {
+  font-family: HelveticaNeueBold;
+  color: #000000;
+  letter-spacing: 0;
+  font-size: 20px;
+  line-height: 25px;
+  margin: 0;
+}
+
+.UserContainer {
+  width: 50%;
+  margin-top: 12px;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: space-between;
+}

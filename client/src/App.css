@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "HelveticaNeueBold";
+  src: url("./fonts/HelveticaNeueCyr-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url("./fonts/HelveticaNeueCyr-Light.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.App {
+  width: 100%;
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+  flex-direction: column;
+  height: 100%;
+  min-height: 100%;
+  min-height: 100vh;
+
+  font-family: HelveticaNeue;
+  color: #000000;
+  letter-spacing: 0;
+  font-size: 13px;
+  line-height: 16px;
+}
