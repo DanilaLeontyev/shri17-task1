@@ -23,7 +23,7 @@
     "graphql-date": "^1.0.3",
     "graphql-request": "^1.4.1",
     "graphql-tools": "^1.2.1",
-    "sequelize": "^4.7.5",
+    "sequelize": "^5.15.1",
     "sqlite3": "^3.1.13"
   },
   "devDependencies": {
